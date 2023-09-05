@@ -119,7 +119,7 @@ namespace extDebug.Menu
 		public void Update()
 		{
 			// Input
-			if (Input != null)
+			if (Input != null && IsVisible)
 			{
 				var eventKey = GetKey(Time.unscaledTime, out var isShift);
 				if (eventKey != EventKey.None)
