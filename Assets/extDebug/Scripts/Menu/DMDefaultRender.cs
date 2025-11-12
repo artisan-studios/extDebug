@@ -90,8 +90,12 @@ namespace extDebug.Menu
 			
 			GUI.skin = _skin;
 
-			var textSize = GUI.skin.label.CalcSize(new GUIContent(_text)) + new Vector2(10, 10);
-			var position = new Vector2(20, 20);
+			float maxWidth = Screen.width;
+			float height = GUI.skin.label.CalcHeight(new GUIContent(_text), maxWidth);
+			float width = Mathf.Min(GUI.skin.label.CalcSize(new GUIContent(_text)).x, maxWidth);
+			
+			var textSize = new Vector2(width + 20, height + 20);
+			var position = new Vector2(10, 10);
 			var rect = new Rect(position, textSize);
 
 			GUI.Box(rect, GUIContent.none);
